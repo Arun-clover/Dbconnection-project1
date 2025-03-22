@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Student Information</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
+        <label for="rollno">Roll No:</label>
+        <input type="text" id="rollno" name="rollno" placeholder="Enter your roll number" required>
+        
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" placeholder="Enter your department" required>
+        
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" placeholder="Enter your year" required>
+        
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section" placeholder="Enter your section" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const form=document.getElementById('studentForm');
+        form.addEventListener("submit",async(event)=>{
+            event.preventDefault();
+            const name=document.getElementById('name').value;
+            const rollno=document.getElementById('rollno').value;
+            const Department=document.getElementById('department').value;
+            const year=document.getElementById('year').value;
+            const section=document.getElementById('section').value;
+
+            const response=await fetch('/studentData',{
+                method:"post",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body:JSON.stringify({name,rollno,Department,year,section})
+            });
+        });
+    </script>
+</body>
+</html>
