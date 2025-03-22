@@ -22,4 +22,6 @@ This is a simple frontend web application that collects user data and stores it 
 - MongoDB
 - Mongoose (for database interaction)
 
-
+### note
+install npm packages mongooes,body-parser,cors,nodemon,express and dotenv.
+create a .env file to handle mongo_url and port
